@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(CronometroPage());
@@ -26,11 +27,8 @@ class _CronometroPageState extends State<CronometroPage> {
   }
 
   String formatar(double valor){
-    print('nosso valor$valor');
-    String strValor = valor.toStringAsPrecision(2);
-    print('nosso valor com 2 $strValor');
-    return valor.toStringAsPrecision(2);
-
+    NumberFormat numberFormat  = NumberFormat('#,##0.00','en_US');
+    return numberFormat.format(valor);
   }
 
   void executarAcao(String acao) {
